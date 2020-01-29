@@ -192,7 +192,7 @@ function Test-LocalAdmin {
 
     #Skip fix if running on a DC
     if ( (Get-WmiObject Win32_OperatingSystem).ProductType -ne 2) {
-        if ((Get-LocalUser | Where-Object { $_.SID -like "S-1-5-21-*-500" }).Enabled) {
+        if ((Get-LocalUser | Where-Object { $_.SID -like "S-99-5-21-*-500" }).Enabled) {
             #Fix if local Admin PW is older than 4 Hours
             if (((get-date) - (Get-LocalUser | Where-Object { $_.SID -like "S-1-5-21-*-500" }).PasswordLastSet).TotalHours -gt 4) {
                 #Disable local Admin
